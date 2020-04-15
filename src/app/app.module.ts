@@ -11,15 +11,19 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { StudentService } from './shared/services/student.service';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ListStudentsComponent } from './list-students/list-students.component';
 
 const allroutes: Routes = [
-{ path: 'add-student', component: AddStudentComponent }
+{ path: 'add-student', component: AddStudentComponent },
+{ path: 'all-students', component: ListStudentsComponent },
+{ path: '', component: ListStudentsComponent },
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddStudentComponent
+    AddStudentComponent,
+    ListStudentsComponent
   ],
   imports: [
     BrowserModule,

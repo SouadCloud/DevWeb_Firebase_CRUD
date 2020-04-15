@@ -16,6 +16,10 @@
     </div>
     <div class="row">
     <div class="col-md-12 mb-3">
+        <label>Age</label>
+        <input type="number" name="age" value="18" min="10" max="1000" step="1" class="form-control" [(ngModel)]="student.age"/>
+    </div>
+    <div class="col-md-12 mb-3">
     <label>Email</label>
     <input type="email" name="mail" class="form-control" [(ngModel)]="student.email">
     </div>
@@ -31,8 +35,7 @@
     <div class="form-group text-right">
     <button type="button"
     class="btn btn-secondary">Cancel</button>
-    <button type="submit" class="btn btn-success">Add
-    Student</button>
+    <button type="submit" class="btn btn-success">{{textAdd}}</button>
     </div>
     </div>
     </div>
