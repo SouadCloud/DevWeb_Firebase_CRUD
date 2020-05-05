@@ -25,7 +25,9 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-toastr/toastr.css",
               "src/styles.css"
+              
             ],
             "scripts": []
           },
@@ -91,7 +93,10 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-toastr/toastr.css",
               "src/styles.css"
+              
+              
             ],
             "scripts": []
           }
@@ -103,11 +108,8 @@
               "tsconfig.app.json",
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
             ]
-          }
+           }
         },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",

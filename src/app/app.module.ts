@@ -13,6 +13,9 @@ import { StudentService } from './shared/services/student.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ListStudentsComponent } from './list-students/list-students.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr'; 
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 const allroutes: Routes = [
 { path: 'add-student', component: AddStudentComponent },
 { path: 'all-students', component: ListStudentsComponent },
@@ -27,6 +30,9 @@ const allroutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    SweetAlert2Module.forRoot(),
+    ToastrModule.forRoot(),
     RouterModule.forRoot(allroutes),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),

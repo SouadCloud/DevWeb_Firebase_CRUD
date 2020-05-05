@@ -1,42 +1,68 @@
 <div class="pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Add Student</h1>
     </div>
-    <form #addForm="ngForm" (ngSubmit)="save()">
-    <div class="row">
-    <div class="col-lg-5 col-md-12 col-sm-12">
-    <div class="row">
-    <div class="col-md-12 mb-3">
-    <label>First Name</label>
-    <input type="text" name="firstName" class="form-control" [(ngModel)]="student.firstName">
-    </div>
-    <div class="col-md-12 mb-3">
-    <label>Last Name</label>
-    <input type="text" name="lastName" class="form-control" [(ngModel)]="student.lasttName">
-    </div>
-    </div>
-    <div class="row">
-    <div class="col-md-12 mb-3">
-        <label>Age</label>
-        <input type="number" name="age" value="18" min="10" max="1000" step="1" class="form-control" [(ngModel)]="student.age"/>
-    </div>
-    <div class="col-md-12 mb-3">
-    <label>Email</label>
-    <input type="email" name="mail" class="form-control" [(ngModel)]="student.email">
-    </div>
-    <div class="col-md-12 mb-3">
-    <label>Password</label>
-    <input type="password" name="pwd" class="form-control" [(ngModel)]="student.password">
-    </div>
-    <div class="col-md-12 mb-3">
-    <label>Phone number</label>
-    <input type="text" name="phone" class="form-control" [(ngModel)]="student.phone">
-    </div>
-    </div>
-    <div class="form-group text-right">
-    <button type="button"
-    class="btn btn-secondary">Cancel</button>
-    <button type="submit" class="btn btn-success">{{textAdd}}</button>
-    </div>
-    </div>
-    </div>
+    <form #addForm="ngForm" (ngSubmit)="save()" novalidate>
+        <div class="row">
+            <div class="col-lg-5 col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label>First Name</label>
+                        <input type="text" name="firstName" class="form-control" pattern="[a-zA-Z ]*" [(ngModel)]="student.firstName" 
+                        required
+                        #firstN = "ngModel">
+                        <div *ngIf="firstN.invalid && firstN.touched" class ="alert alert-danger">
+                            <div *ngIf="firstN.errors.required">First Name is required</div>
+                            <div *ngIf="firstN.errors.pattern">Only letters are acceptd</div>
+                        </div>
+                       
+                     </div>
+                    <div class="col-md-12 mb-3">
+                        <label>Last Name</label>
+                        <input type="text" name="lastName" class="form-control" [(ngModel)]="student.lasttName" 
+                        required
+                        #lastN = "ngModel">
+                        <div *ngIf="lastN.invalid && lastN.touched" class ="alert alert-danger">
+                            <div *ngIf="lastN.errors.required">Last Name is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label>Age</label>
+                        <input type="number" name="age" value="18" min="10" max="1000" step="1" class="form-control" [(ngModel)]="student.age"/>
+                        
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label>Email</label>
+                        <input type="text" name="mail" class="form-control" [(ngModel)]="student.email"
+                        required
+                        email
+                        #mailV = "ngModel">
+                        <div *ngIf="mailV.invalid && mailV.touched" class="alert alert-danger">
+                            <div *ngIf="mailV.errors.required">Email is required</div>
+                            <div *ngIf="mailV.errors.email">Email must be a valid email address</div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label>Password</label>
+                        <input type="password" name="pwd" class="form-control" [(ngModel)]="student.password" 
+                        required 
+                        minlength="8" 
+                        #passw = "ngModel">
+                        <div *ngIf="passw.invalid && passw.touched" class="alert alert-danger">
+                            <div *ngIf="passw.errors.required">Password is required</div>
+                            <div *ngIf="passw.errors.minlength">Password must be at least 8 characters</div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label>Phone number</label>
+                        <input type="text" name="phone" class="form-control" [(ngModel)]="student.phone">
+                    </div>
+                </div>
+                <div class="form-group text-right">
+                    <button type="button" class="btn btn-secondary">Cancel</button>
+                    <button type="submit"  [disabled]="!addForm.valid" class="btn btn-success">{{textAdd}}</button>
+                </div>
+            </div>
+        </div>
     </form>

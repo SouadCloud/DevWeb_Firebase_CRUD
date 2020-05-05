@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../shared/services/student.service';
-import {Student} from '../shared/models/student';
+import { Student } from '../shared/models/student';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-students',
@@ -28,8 +29,25 @@ export class ListStudentsComponent implements OnInit {
     });
   }
   delete(id : string){
-    console.log(id);
-    this.studentService.deleteStudent(id);
+    Swal.fire({
+      title: 'E vous sûr ?',
+      text: "Voulz vous supprimr l'étudiant!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Oui!'
+    }).then((result) => {
+      if (result.value) {
+        this.studentService.deleteStudent(id);
+        Swal.fire(
+          'Supprimé!',
+          'Etudiant supprimé.',
+          'success'
+        )
+      }
+    })
+   
 
   }
 

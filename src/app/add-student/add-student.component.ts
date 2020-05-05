@@ -4,7 +4,7 @@ import { StudentService } from '../shared/services/student.service';
 import { ActivatedRoute, Router} from '@angular/router';
 
 import { NgForm } from '@angular/forms';
-
+import { ToastrModule,ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-student',
@@ -15,7 +15,7 @@ export class AddStudentComponent implements OnInit {
   
   public textAdd = "Add Student";
   public student = new Student();
-  constructor( private studentService: StudentService, private route : ActivatedRoute, private router : Router) { }
+  constructor( private studentService: StudentService, private route : ActivatedRoute, private router : Router, private toastr : ToastrService) { }
 @ViewChild ('addForm', {static:false}) formAdd : NgForm;
   ngOnInit() : void{
 
@@ -29,20 +29,47 @@ export class AddStudentComponent implements OnInit {
     }
     
   }
+  toastrSuccess() {
+
+    if (this.textAdd == "Update Student"){
+
+        this.toastr.success('Mise à jour éffectuée avec succès', this.textAdd, {timeOut : 3000});
+    }
+    else {
+      
+      this.toastr.success('Ajout éffectué avec succès', this.textAdd, {timeOut : 3000});
+
+    }
+  
+  }
+  toastrFailed() {
+
+    if (this.textAdd == "Update Student"){
+
+      this.toastr.error('Mise à jour echouée', this.textAdd, {timeOut : 3000});
+    }
+    else {
+    
+      this.toastr.error('Ajout echoué', this.textAdd, {timeOut : 3000});
+
+    }
+    
+  }
+ 
   save() {
    
-
    if (!this.student.id)
     {
  
       this.studentService.AddStudent({ ...this.student }).then(res=>{
-      this.formAdd.resetForm();
+        this.toastrSuccess();
+        this.formAdd.resetForm();
     })
   }
     else{
       this.studentService.updateStudent({...this.student}).then(res=>{
-        /*this.formAdd.resetForm();*/
-        this.router.navigateByUrl("all-students");
+        this.toastrSuccess();
+        /*this.router.navigateByUrl("all-students");*/
 
       })
       
