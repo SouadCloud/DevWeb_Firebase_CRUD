@@ -16,17 +16,26 @@ import { ListStudentsComponent } from './list-students/list-students.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr'; 
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { AuthComponent } from './auth/auth.component';
+import { RegisterComponent } from './register/register.component';
+import { AngularFireAuthModule } from '@angular/fire/auth'
+
+
 const allroutes: Routes = [
 { path: 'add-student', component: AddStudentComponent },
 { path: 'all-students', component: ListStudentsComponent },
-{ path: '', component: ListStudentsComponent },
+
+{ path: 'login', component: AuthComponent },
+{ path: 'register', component: RegisterComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     AddStudentComponent,
-    ListStudentsComponent
+    ListStudentsComponent,
+    AuthComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +46,8 @@ const allroutes: Routes = [
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    FormsModule
+    FormsModule,
+    AngularFireAuthModule
   ],
   providers: [StudentService,AngularFirestore],
   bootstrap: [AppComponent]

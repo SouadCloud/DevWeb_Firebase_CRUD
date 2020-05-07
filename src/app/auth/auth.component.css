@@ -1,0 +1,27 @@
+.container{
+    border:2px solid blue;
+    text-align:center;
+    
+    height:500px;
+    width:400px;
+}
+body{
+    padding:70px;
+}
+h1{
+    margin:auto;
+}
+.row{
+    height:90px;
+    width:396px;
+    background-color:paleturquoise;
+}
+span {
+    cursor:pointer;
+    color:blue;
+    text-decoration:underline;
+}
+span:hover {
+    text-decoration:none;
+    text-shadow: 1px 1px 1px #555;
+}

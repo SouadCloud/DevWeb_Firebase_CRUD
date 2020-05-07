@@ -1,0 +1,32 @@
+
+<div class="container">
+	<div class="row">
+		 <h1><i class="fa fa-lock" aria-hidden="true"></i> Login</h1>
+       
+        </div><br /><br />
+         
+        
+                	<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+								</div>
+								<input type="text" name="mail" class="form-control" placeholder="email" [(ngModel)] = "email"/>
+							</div><br />
+         
+                	<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-key icon"></i></span>
+								</div>
+									<input type="Password" name="password" class="form-control" placeholder="password" [(ngModel)] = "password"/>
+							</div><br />
+            <div class="checkbox">
+              <label><input type="checkbox" value=""/> Remember me</label>
+            </div><br />
+              <button type="button" class="btn btn-success" (click)="login()"><span class="glyphicon glyphicon-off"></span> Login</button>
+         
+        <div class="footer">
+            <p>Don't have an Account! <a [routerLink]="'/register'">Sign Up Here</a></p>
+          	<div ><span (click) ="resetpassword()">Mot de passe oublié?</span></div>
+        </div>
+ 
+	</div>
