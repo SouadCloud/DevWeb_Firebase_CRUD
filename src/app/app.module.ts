@@ -18,15 +18,25 @@ import { ToastrModule } from 'ngx-toastr';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { AuthComponent } from './auth/auth.component';
 import { RegisterComponent } from './register/register.component';
-import { AngularFireAuthModule } from '@angular/fire/auth'
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ResetPwdComponent } from './reset-pwd/reset-pwd.component'
+import {NgxLocalStorageModule} from 'ngx-localstorage';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { PermissionGuard } from './shared/guards/permission.guard';
 
-
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 const allroutes: Routes = [
-{ path: 'add-student', component: AddStudentComponent },
-{ path: 'all-students', component: ListStudentsComponent },
-
+{ path: 'add-student', component: AddStudentComponent, canActivate :[PermissionGuard] },
+{ path: 'all-students', component: ListStudentsComponent, canActivate :[PermissionGuard] },
+{ path: '', component: AuthComponent },
 { path: 'login', component: AuthComponent },
-{ path: 'register', component: RegisterComponent}
+{ path: 'register', component: RegisterComponent},
+{ path: 'resetpwd', component: ResetPwdComponent}
 ]
 
 @NgModule({
@@ -35,7 +45,8 @@ const allroutes: Routes = [
     AddStudentComponent,
     ListStudentsComponent,
     AuthComponent,
-    RegisterComponent
+    RegisterComponent,
+    ResetPwdComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +58,17 @@ const allroutes: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     FormsModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    NgxLocalStorageModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })
   ],
   providers: [StudentService,AngularFirestore],
   bootstrap: [AppComponent]
