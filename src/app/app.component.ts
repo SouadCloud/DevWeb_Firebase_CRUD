@@ -12,6 +12,7 @@ export class AppComponent implements OnInit{
   title = 'crudFireBase';
   userConnected : string;
   constructor(public loginS : LoginService, private localstorage : LocalStorageService, private translate: TranslateService){
+    translate.addLangs(['en', 'fr']);
     translate.setDefaultLang('en');
   }
   ngOnInit(){
@@ -20,5 +21,8 @@ export class AppComponent implements OnInit{
   }
   logout(){
     this.loginS.logout();
+  }
+  switchLang(lang : string){
+    this.translate.use(lang);
   }
 }

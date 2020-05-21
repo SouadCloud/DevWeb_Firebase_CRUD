@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		 <h1><i class="fa fa-lock" aria-hidden="true"></i> Reset Password</h1>
+		 <h1><i class="fa fa-lock" aria-hidden="true"></i> {{'reset.resetpassword'| translate}}</h1>
     </div><br /><br />
     <div class="input-group">
 		<div class="input-group-prepend">
@@ -8,6 +8,6 @@
 		</div>
 		<input type="text" name="mail" class="form-control" placeholder="email" [(ngModel)] = "email"/>
 	</div><br />
-	<button type="button" class="btn btn-success" (click)="resetpassword()"><span class="glyphicon glyphicon-off"></span> Reset</button>
+	<button type="button" class="btn btn-success" (click)="resetpassword()"><span class="glyphicon glyphicon-off"></span> {{'reset.reset'| translate}}</button>
      
 </div>

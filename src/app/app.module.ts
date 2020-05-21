@@ -28,7 +28,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { PermissionGuard } from './shared/guards/permission.guard';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
 }
 const allroutes: Routes = [
 { path: 'add-student', component: AddStudentComponent, canActivate :[PermissionGuard] },

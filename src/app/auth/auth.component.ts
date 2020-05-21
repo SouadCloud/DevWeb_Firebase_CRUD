@@ -24,7 +24,7 @@ export class AuthComponent implements OnInit {
       this.router.navigate(['all-students']);
       this.localstroage.set('user',result.user.email)
     }).catch((error)=>{
-      this.toastr.error('Vérifier votre adresse mail')
+      this.toastr.error('Verify your adresse email')
     });
   }
   

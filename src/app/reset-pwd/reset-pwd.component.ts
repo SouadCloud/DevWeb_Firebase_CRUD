@@ -21,7 +21,7 @@ export class ResetPwdComponent implements OnInit {
       this.router.navigate(['/login']);
     })
     .catch(err => {
-      this.toastr.error('vérifier votre email','Reset Password');
+      this.toastr.error('Verify your address mail','Reset Password');
     }
     )
 

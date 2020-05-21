@@ -1,12 +1,22 @@
 <div class="btn-group" dropdown *ngIf="loginS.estAuthentifie()">
   <button id="button-animated" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
           aria-controls="dropdown-animated">
-    Paramètres <span class="caret"></span>
+          {{'app.settings'| translate}} <span class="caret"></span>
   </button>
   <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
       role="menu" aria-labelledby="button-animated">
     <li role="menuitem"><a class="dropdown-item" href="#"> {{userConnected}}</a></li>
-    <li role="menuitem"><a class="dropdown-item" [routerLink]="'/login'" (click)="logout()">Se déconnecter</a>
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios"  (click) ="switchLang('fr')">
+      <label class="custom-control-label" for="defaultUnchecked">Fr</label>
+    </div>
+    
+    <!-- Default checked -->
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" id="defaultChecked" name="defaultExampleRadios" (click) ="switchLang('en')" checked>
+      <label class="custom-control-label" for="defaultChecked">En</label>
+    </div>
+    <li role="menuitem"><a class="dropdown-item" [routerLink]="'/login'" (click)="logout()">{{'app.logout'| translate}}</a>
     </li>
   </ul>
 </div>
@@ -15,8 +25,9 @@
   <div class="col-md-2">
     <nav class="nav flex-column" *ngIf="loginS.estAuthentifie()">
      
-      <a class="nav-link" routerLinkActive="active" routerLink="add-student">Add Student</a>
-      <a class="nav-link" routerLinkActive="active" routerLink="all-students">All Students</a>
+      <a class="nav-link" routerLinkActive="active" routerLink="add-student">{{'app.addS'| translate}}</a>
+      <a class="nav-link" routerLinkActive="active" routerLink="all-students">{{'app.listS'| translate}}</a>
+     
     </nav>
   </div>
   <div class="col-md-10">

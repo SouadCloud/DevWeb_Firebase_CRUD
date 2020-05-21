@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../shared/services/student.service';
 import { Student } from '../shared/models/student';
 import Swal from 'sweetalert2';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-list-students',
@@ -10,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class ListStudentsComponent implements OnInit {
 
-  constructor(private studentService: StudentService) { }
+  constructor(private studentService: StudentService, private translate : TranslateService) { }
   students: Student[];
 
   ngOnInit() : void {
@@ -29,20 +30,22 @@ export class ListStudentsComponent implements OnInit {
     });
   }
   delete(id : string){
+
     Swal.fire({
-      title: 'E vous sûr ?',
-      text: "Voulz vous supprimr l'étudiant!",
+      title: this.translate.instant('sweetDialog.title'),
+      text: this.translate.instant('sweetDialog.text'),
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Oui!'
+      confirmButtonText: this.translate.instant('sweetDialog.Yes'),
+      cancelButtonText: this.translate.instant('sweetDialog.No')
     }).then((result) => {
       if (result.value) {
         this.studentService.deleteStudent(id);
         Swal.fire(
-          'Supprimé!',
-          'Etudiant supprimé.',
+          this.translate.instant('sweetDialog.titleRep'),
+          this.translate.instant('sweetDialog.msgRep'),
           'success'
         )
       }

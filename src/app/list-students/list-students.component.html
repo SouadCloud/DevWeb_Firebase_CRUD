@@ -1,15 +1,15 @@
 <div class="pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Liste des étudiants</h1>
+    <h1 class="h2">{{'listS.title' | translate}}</h1>
 </div>
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th scope="col">Nom</th>
-            <th scope="col">Prénom</th>
-            <th scope="col">Email</th>
-            <th scope="col">Mot de passe</th>
-            <th scope="col">Age</th>
-            <th scope="col">Téléphone</th>
+            <th scope="col">{{'listS.firstN'| translate}}</th>
+            <th scope="col">{{'listS.lastN'| translate}}</th>
+            <th scope="col">{{'listS.mail'| translate}}</th>
+            <th scope="col">{{'listS.password'| translate}}</th>
+            <th scope="col">{{'listS.age'| translate}}</th>
+            <th scope="col">{{'listS.phone'| translate}}</th>
             <th scope="col">Action</th>
         </tr>
     </thead>
@@ -22,8 +22,8 @@
             <td scope="col">{{student.age}}</td>
             <td scope="col">{{student.phone}}</td>
             <td>
-                <button type="button" class="btn btn-danger" (click)="delete(student.id)">Delete</button>
-                <button type="button" class="btn btn-primary" [routerLink]="'/add-student'" [queryParams]="{idurl: student.id}">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="delete(student.id)">{{'listS.delete'| translate}}</button>
+                <button type="button" class="btn btn-primary" [routerLink]="'/add-student'" [queryParams]="{idurl: student.id}">{{'listS.edit'| translate}}</button>
             </td>
         </tr>
     </tbody>

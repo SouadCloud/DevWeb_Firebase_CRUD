@@ -24,39 +24,41 @@ export class AddStudentComponent implements OnInit {
     if(id)
     {
       this.getStudent(id);
-      this.textAdd = "Update Student";
+      //this.textAdd =  "Update Student";
+      //this.translate.instant('tag.world') : traduction json & ts
       
     }
     
   }
   toastrSuccess() {
 
-    if (this.textAdd == "Update Student"){
+   /* if (this.textAdd == "Update Student"){
 
-        this.toastr.success('Mise à jour éffectuée avec succès', this.textAdd, {timeOut : 3000});
+        this.toastr.success('Successeful Update', this.textAdd, {timeOut : 3000});
     }
-    else {
+    else {*/
       
-      this.toastr.success('Ajout éffectué avec succès', this.textAdd, {timeOut : 3000});
+      this.toastr.success('Successeful operation', this.textAdd, {timeOut : 3000});
 
-    }
+   // }
   
   }
   toastrFailed() {
 
-    if (this.textAdd == "Update Student"){
+   // if (this.textAdd == "Update Student"){
 
-      this.toastr.error('Mise à jour echouée', this.textAdd, {timeOut : 3000});
-    }
+      this.toastr.error('Update Failed', this.textAdd, {timeOut : 3000});
+   /* }
     else {
     
-      this.toastr.error('Ajout echoué', this.textAdd, {timeOut : 3000});
+      this.toastr.error('Add Failed', this.textAdd, {timeOut : 3000});
 
-    }
+    }*/
     
   }
  
   save() {
+    
    
    if (!this.student.id)
     {

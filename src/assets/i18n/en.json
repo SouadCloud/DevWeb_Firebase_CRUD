@@ -1,0 +1,68 @@
+{
+    "app": {
+        "settings": "Settings",
+        "logout" : "Logout",
+        "addS": "Add Student",
+        "listS": "List Students"
+    },
+    "listS": {
+        "title": "List of Students",
+        "firstN": "First Name",
+        "lastN": "Last Name",
+        "mail": "Email",
+        "password": "Password",
+        "phone": "Phone",
+        "age": "Age",
+        "delete": "Delete",
+        "edit": "Edit"
+    },
+
+    "addS": {
+        "title": "Add Students",
+        "firstN": "First Name",
+        "lastN": "Last Name",
+        "mail": "Email",
+        "password": "Password",
+        "phone": "Phone",
+        "age": "Age",
+        "cancel": "Cancel",
+        "save": "Save",
+        "firstRequire" : "First Name is required",
+        "firstLetter" : "Only letters are acceptd",
+        "lastRequire": "Last Name is required",
+        "emailRequire": "Email is required",  
+        "emailValid": "Email must be a valid email address",   
+        "passwordRequire" :"Password is required",
+        "passwordNbChar" : "Password must be at least 8 characters"  
+
+    },
+    "authS": {
+        "login": "Login",
+        "remember" : "Remember me",
+        "signUp": "Sign Up Here",
+        "pwdForgot" : "Forgot Password"
+
+
+    },
+    "registerS": {
+        "signUp": "Sign Up"
+
+    },
+    "reset": {
+        "reset" : "Reset",
+        "resetpwd" : "Reset Password"
+        
+    },
+    "sweetDialog" :{
+        "title" : "Are you sure?",
+        "text" : "You want to delete Student!",
+        "titleRep" : "Deleting!",
+         "msgRep" : "Student Deleted.",
+         "Yes" : "Yes!",
+         "No" : "No"
+
+         
+    }
+    
+
+}

@@ -1,0 +1,66 @@
+{
+    "app": {
+        "settings": "Paramètres",
+        "logout" : "Déconnexion",
+        "addS": "Ajout Etudiant",
+        "listS": "Liste Etudiants"
+    },
+    "listS": {
+        "title": "Liste des étudiants",
+        "firstN": "Prénom",
+        "lastN": "Nom",
+        "mail": "Email",
+        "password": "Mot de passe",
+        "phone": "Téléphone",
+        "age": "Age",
+        "delete": "Supprimer",
+        "edit": "Modifier"
+    },
+
+    "addS": {
+        "title": "Ajouter Etudiant",
+        "firstN": "Prénom",
+        "lastN": "Nom",
+        "mail": "Email",
+        "password": "Mot de passe",
+        "phone": "Téléphone",
+        "age": "Age",
+        "cancel": "Annuler",
+        "save": "Enregistrer",
+        "firstRequire" : "Prénom est obligatoire",
+        "firstLetter" : "Seules des lettrs sont acceptées",
+        "lastRequire": "Nom est obligatoire",
+        "emailRequire": "Email est obligatoire",  
+        "emailValid": "Email doit être valide",   
+        "passwordRequired" :"Mot de passe est obligatoire",
+        "passwordNbChar" : "Mot de passe doit contenir 8 caractères" 
+
+    },
+    "authS": {
+        "login": "Se connecter",
+        "remember" : "Se souvenir de moi",
+        "signUp": "s'enrgistrer ici",
+        "pwdForgot" : "Mot de pass oublié"
+
+
+    },
+    "registerS": {
+        "signUp": "S'enregistrer"
+
+    },
+    "reset": {
+        "reset" : "Initialiser",
+        "resetpwd" : "Initialiser Mot de passe"
+        
+    },
+    "sweetDialog" :{
+        "title" : "Etes vous sûre?",
+        "text" : "Vous voulez supprilr l'étudiant!",
+        "titleRep" : "Supprssion!",
+         "msgRep" : "Etudiant Supprimé.",
+         "Yes" : "Oui!",
+         "No" : "Non"
+    }
+    
+
+}
