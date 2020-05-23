@@ -16,6 +16,9 @@ export class AuthComponent implements OnInit {
   constructor(public loginS : LoginService, public router : Router, public toastr : ToastrService,private localstroage : LocalStorageService) { }
 
   ngOnInit() {
+    if (this.localstroage.get('user')){
+      this.router.navigate(['all-students']);
+    }
   }
   login (){
 

@@ -26,6 +26,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { PermissionGuard } from './shared/guards/permission.guard';
+import { NavComponent } from './shared/component/nav/nav.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
@@ -46,7 +47,8 @@ const allroutes: Routes = [
     ListStudentsComponent,
     AuthComponent,
     RegisterComponent,
-    ResetPwdComponent
+    ResetPwdComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

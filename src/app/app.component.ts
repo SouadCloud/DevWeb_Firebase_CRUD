@@ -25,4 +25,7 @@ export class AppComponent implements OnInit{
   switchLang(lang : string){
     this.translate.use(lang);
   }
+  setTitle(event){
+    console.log(event);
+  }
 }
